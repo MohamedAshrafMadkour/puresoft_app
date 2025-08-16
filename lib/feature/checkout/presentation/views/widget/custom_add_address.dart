@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 
 class CustomAddAddress extends StatelessWidget {
   const CustomAddAddress({super.key});
@@ -27,7 +27,9 @@ class CustomAddAddress extends StatelessWidget {
         children: [
           Text(
             'Add New Address',
-            style: AppStyle.textBold16.copyWith(color: const Color(0xFF4A4A4A)),
+            style: AppStyle.textBold16(
+              context,
+            ).copyWith(color: const Color(0xFF4A4A4A)),
           ),
           Icon(Icons.add, color: const Color(0xff656565), size: 36),
         ],

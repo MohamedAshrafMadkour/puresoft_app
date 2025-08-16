@@ -1,18 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:puresoft_task/feature/auth/ready/presentation/view/ready_view.dart';
 import 'package:puresoft_task/feature/on_boarding/presentation/view/widget/custom_button.dart';
 import 'package:puresoft_task/feature/on_boarding/presentation/view/widget/custom_dots_indicator.dart';
+import 'package:puresoft_task/feature/on_boarding/presentation/view/widget/custom_on_boarding_button.dart';
 import 'package:puresoft_task/feature/on_boarding/presentation/view/widget/custom_on_boarding_item.dart';
 import 'package:puresoft_task/feature/on_boarding/presentation/view/widget/custom_skip_text.dart';
 
-class OnBoardingViewBody extends StatefulWidget {
+class OnBoardingViewBody extends StatelessWidget {
   const OnBoardingViewBody({super.key});
 
   @override
-  State<OnBoardingViewBody> createState() => _OnBoardingViewBodyState();
+  Widget build(BuildContext context) {
+    bool isLandScape =
+        MediaQuery.orientationOf(context) == Orientation.landscape;
+    return isLandScape
+        ? const OnBoardingViewBodyLandscape()
+        : const OnBoardingViewBodyPortia();
+  }
 }
 
-class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
+class OnBoardingViewBodyPortia extends StatefulWidget {
+  const OnBoardingViewBodyPortia({super.key});
+
+  @override
+  State<OnBoardingViewBodyPortia> createState() =>
+      _OnBoardingViewBodyPortiaState();
+}
+
+class _OnBoardingViewBodyPortiaState extends State<OnBoardingViewBodyPortia> {
   late PageController pageController;
   int currentPage = 0;
   @override
@@ -46,29 +60,82 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           CustomDotsIndicator(currentPage: currentPage),
           SizedBox(height: MediaQuery.sizeOf(context).height * 0.08),
 
-          CustomButton(
-            title: currentPage == 2 ? 'Get Started' : 'Next',
-            onPressed: () {
-              if (currentPage == 0) {
-                pageController.animateToPage(
-                  1,
-                  duration: Duration(milliseconds: 300),
-                  curve: Curves.easeInCubic,
-                );
-                // pageController.animateToPage(page, duration: duration, curve: curve)
-              } else if (currentPage == 1) {
-                pageController.animateToPage(
-                  2,
-                  duration: Duration(milliseconds: 300),
-                  curve: Curves.easeInCubic,
-                );
-              } else {
-                Navigator.pushNamed(context, ReadyView.routeName);
-              }
-            },
+          CustomOnBoardingButton(
+            currentPage: currentPage,
+            pageController: pageController,
           ),
         ],
       ),
+    );
+  }
+}
+
+class OnBoardingViewBodyLandscape extends StatefulWidget {
+  const OnBoardingViewBodyLandscape({super.key});
+
+  @override
+  State<OnBoardingViewBodyLandscape> createState() =>
+      _OnBoardingViewBodyLandscapeState();
+}
+
+class _OnBoardingViewBodyLandscapeState
+    extends State<OnBoardingViewBodyLandscape> {
+  late PageController pageController;
+  int currentPage = 0;
+  @override
+  void initState() {
+    pageController = PageController();
+    pageController.addListener(
+      () => setState(() => currentPage = pageController.page!.round()),
+    );
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        SizedBox(
+          height: MediaQuery.sizeOf(context).height,
+          width: MediaQuery.sizeOf(context).width * 0.6,
+          child: Column(
+            children: [
+              Expanded(
+                child: PageView.builder(
+                  controller: pageController,
+                  itemCount: 3,
+                  itemBuilder: (_, index) =>
+                      CustomOnBoardingItemLandScape(currentIndex: index),
+                ),
+              ),
+              SizedBox(height: MediaQuery.sizeOf(context).height * 0.04),
+              CustomDotsIndicator(currentPage: currentPage),
+              SizedBox(height: MediaQuery.sizeOf(context).height * 0.08),
+            ],
+          ),
+        ),
+
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CustomOnBoardingButton(
+              width: MediaQuery.sizeOf(context).width * 0.3,
+              currentPage: currentPage,
+              pageController: pageController,
+            ),
+
+            SizedBox(height: MediaQuery.sizeOf(context).height * .04),
+            Visibility(
+              visible: currentPage != 2,
+              child: CustomButton(
+                width: MediaQuery.sizeOf(context).width * 0.3,
+                title: 'Skip',
+                onPressed: () {},
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

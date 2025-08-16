@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:puresoft_task/core/utils/app_color.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 
 class CustomTrackOrderButton extends StatelessWidget {
   const CustomTrackOrderButton({super.key, this.onPressed});
@@ -21,7 +21,9 @@ class CustomTrackOrderButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           'Track Order',
-          style: AppStyle.textBold18.copyWith(color: AppColor.primaryColor),
+          style: AppStyle.textBold18(
+            context,
+          ).copyWith(color: AppColor.primaryColor),
         ),
       ),
     );

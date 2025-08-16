@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 import 'package:puresoft_task/feature/auth/ready/presentation/view/widget/custom_auth_icon.dart';
 import 'package:puresoft_task/feature/auth/ready/presentation/view/widget/custom_ready_text.dart';
 import 'package:puresoft_task/feature/auth/ready/presentation/view/widget/custom_sign_text.dart';
@@ -21,14 +21,14 @@ class VerifyViewBody extends StatelessWidget {
               SizedBox(height: 50),
               CustomMainText(),
               SizedBox(height: 25),
-              Text('Enter Received OTP', style: AppStyle.textBold28),
+              Text('Enter Received OTP', style: AppStyle.textBold28(context)),
 
               SizedBox(height: 60),
               CustomVerifyOtp(),
               SizedBox(height: 60),
               CustomAuthButton(title: 'Confirm', onPressed: () {}),
               SizedBox(height: 40),
-              Text('60', style: AppStyle.textRegular30),
+              Text('60', style: AppStyle.textRegular30(context)),
               SizedBox(height: 40),
               CustomSignText(title: 'Not received? ', subtitle: 'Send Again'),
             ],

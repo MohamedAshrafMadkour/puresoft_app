@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 import 'package:puresoft_task/core/utils/assets.dart';
 
 class CustomAllAreasContainer extends StatelessWidget {
@@ -33,7 +33,9 @@ class CustomAllAreasContainer extends StatelessWidget {
           SizedBox(width: 10),
           Text(
             'All Areas',
-            style: AppStyle.textRegular14.copyWith(color: Colors.black),
+            style: AppStyle.textRegular14(
+              context,
+            ).copyWith(color: Colors.black),
           ),
         ],
       ),

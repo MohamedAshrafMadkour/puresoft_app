@@ -7,7 +7,13 @@ class CustomThirdHomeSectionItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isLandScape =
+        MediaQuery.orientationOf(context) == Orientation.landscape;
     return CustomProductContainerShape(
+      height: isLandScape
+          ? MediaQuery.sizeOf(context).height * 0.3
+          : MediaQuery.sizeOf(context).height * 0.13,
+
       child: const CustomThirdSectionItemData(),
     );
   }

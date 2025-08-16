@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 
 class CustomThirdHomeSectionHeader extends StatelessWidget {
   const CustomThirdHomeSectionHeader({super.key});
@@ -9,12 +9,12 @@ class CustomThirdHomeSectionHeader extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text('Sellers', style: AppStyle.textBold16),
+        Text('Sellers', style: AppStyle.textBold16(context)),
         Text(
           'Show all',
-          style: AppStyle.textRegular18.copyWith(
-            color: const Color(0xFF235C95),
-          ),
+          style: AppStyle.textRegular18(
+            context,
+          ).copyWith(color: const Color(0xFF235C95)),
         ),
       ],
     );

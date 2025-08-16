@@ -10,7 +10,7 @@ class CustomDashLineRow extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: List.generate(count, (index) {
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 3),
+          padding: const EdgeInsets.symmetric(horizontal: 2),
           child: CustomCheckOutDashLine(
             index: index == 0 || index == count - 1,
           ),

@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:puresoft_task/core/utils/app_color.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 
 class CustomAuthButton extends StatelessWidget {
-  const CustomAuthButton({super.key, required this.title, this.onPressed});
+  const CustomAuthButton({
+    super.key,
+    required this.title,
+    this.onPressed,
+    this.height,
+    this.width,
+  });
   final String title;
   final void Function()? onPressed;
+  final double? height, width;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
-      height: 50,
+      width: width ?? double.infinity,
+      height: height ?? 50,
       child: TextButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColor.primaryColor,
@@ -22,7 +29,7 @@ class CustomAuthButton extends StatelessWidget {
         child: Text(
           title,
           textAlign: TextAlign.center,
-          style: AppStyle.textMedium16,
+          style: AppStyle.textMedium16(context),
         ),
       ),
     );

@@ -35,11 +35,12 @@ class CustomStepperRow extends StatelessWidget {
             }),
           ),
         ),
+
         SizedBox(height: 8),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: List.generate(3, (index) {
               return CustomStepText(
                 isActive: index == currentIndex,

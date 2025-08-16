@@ -8,7 +8,6 @@ class CustomSecondHomeSectionItem extends StatelessWidget {
     return Container(
       width: MediaQuery.sizeOf(context).width * 0.2,
 
-      padding: const EdgeInsets.all(10),
       decoration: ShapeDecoration(
         color: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
@@ -21,7 +20,10 @@ class CustomSecondHomeSectionItem extends StatelessWidget {
           ),
         ],
       ),
-      child: Image.asset(image, fit: BoxFit.fill),
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Image.asset(image, fit: BoxFit.fill),
+      ),
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 import 'package:puresoft_task/feature/auth/login/presentation/view/login_view.dart';
 import 'package:puresoft_task/feature/auth/ready/presentation/view/widget/custom_auth_icon.dart';
 import 'package:puresoft_task/feature/auth/ready/presentation/view/widget/custom_ready_text.dart';
@@ -14,6 +14,19 @@ class RegisterViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isLandScape =
+        MediaQuery.orientationOf(context) == Orientation.landscape;
+    return isLandScape
+        ? const RegisterViewBodyLandScape()
+        : const RegisterViewBodyPortia();
+  }
+}
+
+class RegisterViewBodyPortia extends StatelessWidget {
+  const RegisterViewBodyPortia({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     return CustomScrollView(
       keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
       slivers: [
@@ -25,7 +38,7 @@ class RegisterViewBody extends StatelessWidget {
               SizedBox(height: 50),
               CustomMainText(),
               SizedBox(height: 25),
-              Text('Sign Up to Wikala', style: AppStyle.textBold28),
+              Text('Sign Up to Wikala', style: AppStyle.textBold28(context)),
               SizedBox(height: 25),
               CustomHeaderField(text: 'Full Name'),
               const SizedBox(height: 12),
@@ -53,6 +66,85 @@ class RegisterViewBody extends StatelessWidget {
               CustomSignText(
                 title: 'Already have an account? ',
                 subtitle: '|Login ',
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class RegisterViewBodyLandScape extends StatelessWidget {
+  const RegisterViewBodyLandScape({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomScrollView(
+      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+      slivers: [
+        SliverToBoxAdapter(
+          child: Column(
+            children: [
+              const SizedBox(height: 20),
+              CustomAuthIcon(icon: Icons.arrow_back_ios_new_outlined),
+
+              CustomMainText(),
+              SizedBox(height: 25),
+              Text('Sign Up to Wikala', style: AppStyle.textBold28(context)),
+              SizedBox(height: 25),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomHeaderField(text: 'Full Name'),
+                      const SizedBox(height: 12),
+                      CustomTextFormField(
+                        height: MediaQuery.sizeOf(context).height * 0.1,
+                        width: MediaQuery.sizeOf(context).width * 0.3,
+                        hintText: 'First and Last Name',
+                        keyboardType: TextInputType.name,
+                        onSaved: (value) {},
+                      ),
+                    ],
+                  ),
+                  const SizedBox(width: 16),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CustomHeaderField(text: 'Phone Number with Whatsapp'),
+                      const SizedBox(height: 12),
+                      CustomPhoneTextFormField(
+                        height: MediaQuery.sizeOf(context).height * .1,
+                        width: MediaQuery.sizeOf(context).width * 0.4,
+                        hintText: 'Mobile Number',
+                        keyboardType: TextInputType.phone,
+                        onSaved: (value) {},
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 50),
+              CustomAuthButton(
+                height: MediaQuery.sizeOf(context).height * .1,
+                width: MediaQuery.sizeOf(context).width * .3,
+                title: 'Sign Up',
+                onPressed: () {
+                  Navigator.pushNamed(context, LoginView.routeName);
+                },
+              ),
+              const SizedBox(height: 50),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+                child: CustomSignText(
+                  title: 'Already have an account? ',
+                  subtitle: '|Login ',
+                ),
               ),
             ],
           ),

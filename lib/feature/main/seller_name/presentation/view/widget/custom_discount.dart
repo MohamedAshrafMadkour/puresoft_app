@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 
 class CustomDiscount extends StatelessWidget {
   const CustomDiscount({super.key});
@@ -15,7 +15,9 @@ class CustomDiscount extends StatelessWidget {
       child: Text(
         '10% Off Discount',
         textAlign: TextAlign.center,
-        style: AppStyle.textRegular16.copyWith(color: const Color(0xFF656565)),
+        style: AppStyle.textRegular16(
+          context,
+        ).copyWith(color: const Color(0xFF656565)),
       ),
     );
   }

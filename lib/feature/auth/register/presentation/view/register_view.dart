@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:puresoft_task/core/utils/app_size.dart';
+import 'package:puresoft_task/core/constant/app_size.dart';
 import 'package:puresoft_task/feature/auth/register/presentation/view/widget/register_view_body.dart';
 
 class RegisterView extends StatelessWidget {

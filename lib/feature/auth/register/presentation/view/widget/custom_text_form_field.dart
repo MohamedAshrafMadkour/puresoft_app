@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
@@ -8,14 +8,18 @@ class CustomTextFormField extends StatelessWidget {
     this.keyboardType,
 
     this.onSaved,
+    this.height,
+    this.width,
   });
   final String hintText;
   final TextInputType? keyboardType;
   final Function(String?)? onSaved;
-
+  final double? height, width;
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: height,
+      width: width,
       decoration: ShapeDecoration(
         color: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
@@ -48,7 +52,9 @@ class CustomTextFormField extends StatelessWidget {
           focusedBorder: outlineInputBorder(),
 
           hintText: hintText,
-          hintStyle: AppStyle.textRegular14.copyWith(color: Colors.black),
+          hintStyle: AppStyle.textRegular14(
+            context,
+          ).copyWith(color: Colors.black),
         ),
       ),
     );

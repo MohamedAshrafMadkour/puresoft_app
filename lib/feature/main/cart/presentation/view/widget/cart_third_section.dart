@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 import 'package:puresoft_task/core/widget/custom_action_button.dart';
 import 'package:puresoft_task/feature/checkout/presentation/views/check_out_view.dart';
 
@@ -16,15 +16,15 @@ class CartThirdSection extends StatelessWidget {
           children: [
             Text(
               '4 items in cart',
-              style: AppStyle.textRegular16.copyWith(
-                color: const Color(0xFF656565),
-              ),
+              style: AppStyle.textRegular16(
+                context,
+              ).copyWith(color: const Color(0xFF656565)),
             ),
             Text(
               '37.50 KD',
-              style: AppStyle.textBold16.copyWith(
-                color: const Color(0xFF656565),
-              ),
+              style: AppStyle.textBold16(
+                context,
+              ).copyWith(color: const Color(0xFF656565)),
             ),
           ],
         ),

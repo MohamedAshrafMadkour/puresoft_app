@@ -10,6 +10,19 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isLandScape =
+        MediaQuery.orientationOf(context) == Orientation.landscape;
+    return isLandScape
+        ? const HomeViewBodyLandScape()
+        : const HomeViewBodyPortia();
+  }
+}
+
+class HomeViewBodyPortia extends StatelessWidget {
+  const HomeViewBodyPortia({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       children: [
         CustomHomeBar(title: 'Fruit Market'),
@@ -19,13 +32,71 @@ class HomeViewBody extends StatelessWidget {
               SliverToBoxAdapter(child: SizedBox(height: 15)),
               SliverToBoxAdapter(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.symmetric(horizontal: 9),
                   child: HomeFirstSection(),
                 ),
               ),
               SliverToBoxAdapter(
                 child: Column(
-                  children: [CustomSecondHomeSection(), SizedBox(height: 16)],
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 11.0),
+                      child: CustomSecondHomeSection(),
+                    ),
+                    SizedBox(height: 16),
+                  ],
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: Column(
+                    children: [
+                      CustomThirdHomeSectionHeader(),
+                      SizedBox(height: 16),
+                    ],
+                  ),
+                ),
+              ),
+              SliverPadding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                sliver: CustomThirdHomeSectionItemList(),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class HomeViewBodyLandScape extends StatelessWidget {
+  const HomeViewBodyLandScape({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        CustomHomeBar(title: 'Fruit Market'),
+        Expanded(
+          child: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(child: SizedBox(height: 15)),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 9),
+                  child: HomeFirstSection(),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 11.0),
+                      child: CustomSecondHomeSection(),
+                    ),
+                    SizedBox(height: 16),
+                  ],
                 ),
               ),
               SliverToBoxAdapter(

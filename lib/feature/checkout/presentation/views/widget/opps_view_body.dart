@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 import 'package:puresoft_task/core/utils/assets.dart';
 import 'package:puresoft_task/core/widget/custom_app_bar.dart';
 import 'package:puresoft_task/feature/on_boarding/presentation/view/widget/custom_button.dart';
@@ -22,15 +22,17 @@ class OppsViewBody extends StatelessWidget {
               SizedBox(height: 46),
               Text(
                 'OPS',
-                style: AppStyle.textBold26.copyWith(color: Color(0xFFFF4A4A)),
+                style: AppStyle.textBold26(
+                  context,
+                ).copyWith(color: Color(0xFFFF4A4A)),
               ),
               SizedBox(height: 12),
               FittedBox(
                 child: Text(
                   'Error while confirming your payment/order',
-                  style: AppStyle.textRegular18.copyWith(
-                    color: const Color(0xFF656565),
-                  ),
+                  style: AppStyle.textRegular18(
+                    context,
+                  ).copyWith(color: const Color(0xFF656565)),
                 ),
               ),
               SizedBox(height: MediaQuery.sizeOf(context).height * 0.1),

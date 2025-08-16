@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 
 class CustomSelector extends StatelessWidget {
   const CustomSelector({super.key, required this.title});
@@ -11,7 +11,9 @@ class CustomSelector extends StatelessWidget {
       children: [
         Text(
           title,
-          style: AppStyle.textBold18.copyWith(color: const Color(0xFF292727)),
+          style: AppStyle.textBold18(
+            context,
+          ).copyWith(color: const Color(0xFF292727)),
         ),
         Icon(Icons.keyboard_arrow_up_sharp),
       ],

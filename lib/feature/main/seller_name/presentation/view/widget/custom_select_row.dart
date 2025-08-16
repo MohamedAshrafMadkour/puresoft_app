@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 import 'package:puresoft_task/core/widget/custom_selector_icon.dart';
 
 class CustomSelectorRow extends StatelessWidget {
@@ -13,9 +13,9 @@ class CustomSelectorRow extends StatelessWidget {
         SizedBox(width: 12),
         Text(
           title,
-          style: AppStyle.textRegular16.copyWith(
-            color: const Color(0xFF656565),
-          ),
+          style: AppStyle.textRegular16(
+            context,
+          ).copyWith(color: const Color(0xFF656565)),
         ),
       ],
     );

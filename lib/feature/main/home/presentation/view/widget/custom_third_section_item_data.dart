@@ -10,6 +10,19 @@ class CustomThirdSectionItemData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isLandScape =
+        MediaQuery.orientationOf(context) == Orientation.landscape;
+    return isLandScape
+        ? const CustomThirdSectionItemDataLandScape()
+        : const CustomThirdSectionItemDataPortia();
+  }
+}
+
+class CustomThirdSectionItemDataPortia extends StatelessWidget {
+  const CustomThirdSectionItemDataPortia({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     return Row(
       children: [
         Padding(padding: const EdgeInsets.only(left: 16), child: CustomLogo()),
@@ -20,16 +33,64 @@ class CustomThirdSectionItemData extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, SellerNameView.routeName);
-                  },
-                  child: CustomNameRow(),
+                Flexible(
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, SellerNameView.routeName);
+                    },
+                    child: CustomNameRow(),
+                  ),
                 ),
                 SizedBox(height: 12),
-                CustomDeliveryRow(),
+                Flexible(child: CustomDeliveryRow()),
                 SizedBox(height: 12),
-                CustomStatusRow(),
+                Flexible(child: CustomStatusRow()),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class CustomThirdSectionItemDataLandScape extends StatelessWidget {
+  const CustomThirdSectionItemDataLandScape({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Flexible(
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, SellerNameView.routeName);
+                    },
+                    child: CustomNameRow(),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        Padding(padding: const EdgeInsets.only(left: 16), child: CustomLogo()),
+        SizedBox(height: 16),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 12),
+                Flexible(child: CustomDeliveryRow()),
+                SizedBox(height: 12),
+                Flexible(child: CustomStatusRow()),
               ],
             ),
           ),

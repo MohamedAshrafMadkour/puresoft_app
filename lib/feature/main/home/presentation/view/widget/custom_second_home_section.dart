@@ -7,7 +7,27 @@ class CustomSecondHomeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: List.generate(4, (index) {
+        return Padding(
+          padding: EdgeInsets.only(right: index != 3 ? 16 : 0),
+          child: CustomSecondHomeSectionItem(image: placeImages[index]),
+        );
+      }),
+    );
+  }
+}
+
+List<String> placeImages = [
+  Assets.imagesRest,
+  Assets.imagesFarm,
+  Assets.imagesCoffee,
+  Assets.imagesPharmacy,
+];
+
+/**SizedBox(
       height: MediaQuery.sizeOf(context).height * 0.095,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -20,13 +40,4 @@ class CustomSecondHomeSection extends StatelessWidget {
           );
         },
       ),
-    );
-  }
-}
-
-List<String> placeImages = [
-  Assets.imagesRest,
-  Assets.imagesFarm,
-  Assets.imagesCoffee,
-  Assets.imagesPharmacy,
-];
+    ); */

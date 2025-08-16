@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:puresoft_task/core/utils/app_color.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -33,7 +33,7 @@ class CustomButton extends StatelessWidget {
         child: Text(
           title,
           textAlign: TextAlign.center,
-          style: style ?? AppStyle.textMedium16,
+          style: style ?? AppStyle.textMedium16(context),
         ),
       ),
     );

@@ -23,10 +23,14 @@ class _HomeFirstSectionState extends State<HomeFirstSection> {
 
   @override
   Widget build(BuildContext context) {
+    bool isLandScape =
+        MediaQuery.orientationOf(context) == Orientation.landscape;
     return Column(
       children: [
         SizedBox(
-          height: MediaQuery.sizeOf(context).height * 0.15,
+          height: isLandScape
+              ? MediaQuery.sizeOf(context).height * 0.4
+              : MediaQuery.sizeOf(context).height * 0.15,
           child: PageView.builder(
             controller: pageController,
             itemCount: 4,

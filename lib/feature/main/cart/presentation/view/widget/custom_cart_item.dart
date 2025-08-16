@@ -9,7 +9,54 @@ class CustomCartItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isLandScape =
+        MediaQuery.orientationOf(context) == Orientation.landscape;
+    return isLandScape
+        ? const CustomCartItemLandScape()
+        : const CustomCartItemPortia();
+  }
+}
+
+class CustomCartItemPortia extends StatelessWidget {
+  const CustomCartItemPortia({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     return CustomProductContainerShape(
+      height: MediaQuery.sizeOf(context).height * 0.12,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 21),
+            child: CustomLogo(),
+          ),
+          SizedBox(width: 22),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: CustomCartItemData(),
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: CustomQuantityAndDeleteCartItem(),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CustomCartItemLandScape extends StatelessWidget {
+  const CustomCartItemLandScape({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomProductContainerShape(
+      height: MediaQuery.sizeOf(context).height * 0.3,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [

@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 import 'package:puresoft_task/feature/profile/presentation/view/terms_view.dart';
 
 class CustomTerms extends StatelessWidget {
@@ -13,21 +13,21 @@ class CustomTerms extends StatelessWidget {
         children: [
           TextSpan(
             text: 'By continue you agree to our',
-            style: AppStyle.textRegular18.copyWith(
-              color: const Color(0xFF88909C),
-            ),
+            style: AppStyle.textRegular18(
+              context,
+            ).copyWith(color: const Color(0xFF88909C)),
           ),
           TextSpan(
             text: 'Terms of service',
-            style: AppStyle.textRegular18.copyWith(
-              color: const Color(0xFF88909C),
-            ),
+            style: AppStyle.textRegular18(
+              context,
+            ).copyWith(color: const Color(0xFF88909C)),
           ),
           TextSpan(
             text: 'and our',
-            style: AppStyle.textRegular18.copyWith(
-              color: const Color(0xFF7C8594),
-            ),
+            style: AppStyle.textRegular18(
+              context,
+            ).copyWith(color: const Color(0xFF7C8594)),
           ),
           TextSpan(
             recognizer: TapGestureRecognizer()
@@ -35,9 +35,9 @@ class CustomTerms extends StatelessWidget {
                 Navigator.pushNamed(context, TermsView.routeName);
               },
             text: 'Privacy Policy',
-            style: AppStyle.textRegular18.copyWith(
-              color: const Color(0xFF205A94),
-            ),
+            style: AppStyle.textRegular18(
+              context,
+            ).copyWith(color: const Color(0xFF205A94)),
           ),
         ],
       ),

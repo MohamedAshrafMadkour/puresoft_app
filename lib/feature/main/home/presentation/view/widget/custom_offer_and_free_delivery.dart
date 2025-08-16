@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 import 'package:puresoft_task/feature/main/home/presentation/view/widget/custom_check_icon.dart';
 
 class CustomOffersAndFreeDelivery extends StatelessWidget {
@@ -16,7 +16,7 @@ class CustomOffersAndFreeDelivery extends StatelessWidget {
       children: [
         CustomCheckIcon(isSelected: isSelected),
 
-        Text(title, style: AppStyle.textRegular16),
+        Text(title, style: AppStyle.textRegular16(context)),
       ],
     );
   }

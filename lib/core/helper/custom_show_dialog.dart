@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 import 'package:puresoft_task/core/utils/assets.dart';
 import 'package:puresoft_task/feature/main/home/presentation/view/widget/custom_areas_container.dart';
 import 'package:puresoft_task/feature/main/home/presentation/view/widget/custom_offer_and_delivery_list.dart';
@@ -15,7 +15,9 @@ Future<dynamic> customShowDialog(BuildContext context) {
         backgroundColor: Colors.white,
         title: Text(
           'Filter by',
-          style: AppStyle.textBold18.copyWith(color: const Color(0xFF292727)),
+          style: AppStyle.textBold18(
+            context,
+          ).copyWith(color: const Color(0xFF292727)),
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
@@ -24,9 +26,9 @@ Future<dynamic> customShowDialog(BuildContext context) {
               children: [
                 Text(
                   'Delivered To',
-                  style: AppStyle.textRegular14.copyWith(
-                    color: const Color(0xFF858D9A),
-                  ),
+                  style: AppStyle.textRegular14(
+                    context,
+                  ).copyWith(color: const Color(0xFF858D9A)),
                 ),
                 SizedBox(width: 16),
                 SvgPicture.asset(

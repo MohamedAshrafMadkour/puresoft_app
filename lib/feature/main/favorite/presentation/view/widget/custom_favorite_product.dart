@@ -8,7 +8,12 @@ class CustomFavoriteProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isLandScape =
+        MediaQuery.orientationOf(context) == Orientation.landscape;
     return CustomProductContainerShape(
+      height: isLandScape
+          ? MediaQuery.sizeOf(context).height * 0.28
+          : MediaQuery.sizeOf(context).height * 0.12,
       child: Padding(
         padding: const EdgeInsets.only(left: 16, right: 8, top: 16, bottom: 12),
         child: Row(

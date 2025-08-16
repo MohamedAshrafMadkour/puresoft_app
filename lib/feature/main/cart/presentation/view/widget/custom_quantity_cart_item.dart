@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 
 class CustomQuantityItemCart extends StatelessWidget {
   const CustomQuantityItemCart({super.key});
@@ -24,10 +24,13 @@ class CustomQuantityItemCart extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Icon(Icons.remove, color: const Color(0xFF656565)),
-          Text(
-            '1',
-            style: AppStyle.textRegular17.copyWith(
-              color: const Color(0xFF656565),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              '1',
+              style: AppStyle.textRegular17(
+                context,
+              ).copyWith(color: const Color(0xFF656565)),
             ),
           ),
           Icon(Icons.add, color: const Color(0xff656565)),

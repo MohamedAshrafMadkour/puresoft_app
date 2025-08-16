@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 import 'package:puresoft_task/core/widget/custom_divider.dart';
 import 'package:puresoft_task/feature/main/seller_name/presentation/view/widget/custom_details_name.dart';
 import 'package:puresoft_task/feature/main/seller_name/presentation/view/widget/custom_select_row.dart';
@@ -21,18 +21,18 @@ class CustomDetailsSecondSection extends StatelessWidget {
               children: [
                 Text(
                   'Price',
-                  style: AppStyle.textRegular14.copyWith(
-                    color: const Color(0xFF656565),
-                  ),
+                  style: AppStyle.textRegular14(
+                    context,
+                  ).copyWith(color: const Color(0xFF656565)),
                 ),
                 Row(
                   children: [
-                    Text('KD12.00 ', style: AppStyle.tetBold20),
+                    Text('KD12.00 ', style: AppStyle.tetBold20(context)),
                     Text(
                       'KD14.00',
-                      style: AppStyle.textRegular17LineThrough.copyWith(
-                        decorationColor: Colors.red[100],
-                      ),
+                      style: AppStyle.textRegular17LineThrough(
+                        context,
+                      ).copyWith(decorationColor: Colors.red[100]),
                     ),
                   ],
                 ),
@@ -43,16 +43,16 @@ class CustomDetailsSecondSection extends StatelessWidget {
         SizedBox(height: 4),
         Text(
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-          style: AppStyle.textRegular16.copyWith(
-            color: const Color(0xFF656565),
-          ),
+          style: AppStyle.textRegular16(
+            context,
+          ).copyWith(color: const Color(0xFF656565)),
         ),
         SizedBox(height: 14),
         Text(
           'Sell Per : Kartoon',
-          style: AppStyle.textRegular16.copyWith(
-            color: const Color(0xFF656565),
-          ),
+          style: AppStyle.textRegular16(
+            context,
+          ).copyWith(color: const Color(0xFF656565)),
         ),
         SizedBox(height: 21),
         CustomSelector(title: 'Select Weight'),

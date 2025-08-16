@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:puresoft_task/core/utils/app_size.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_size.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 import 'package:puresoft_task/feature/auth/ready/presentation/view/widget/custom_auth_icon.dart';
 import 'package:puresoft_task/feature/auth/ready/presentation/view/widget/custom_ready_text.dart';
 import 'package:puresoft_task/feature/auth/register/presentation/view/widget/custom_auth_button.dart';
@@ -25,7 +25,7 @@ class PhoneViewBody extends StatelessWidget {
                 SizedBox(height: 50),
                 CustomMainText(),
                 SizedBox(height: 25),
-                Text('Enter your Number', style: AppStyle.textBold28),
+                Text('Enter your Number', style: AppStyle.textBold28(context)),
                 SizedBox(height: 25),
                 CustomHeaderField(text: 'Phone Number'),
                 const SizedBox(height: 12),

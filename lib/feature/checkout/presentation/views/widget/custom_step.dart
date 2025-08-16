@@ -8,10 +8,8 @@ class CustomStep extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 3),
       child: Container(
-        width: 22,
-        height: 22,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           border: Border.all(
@@ -20,10 +18,10 @@ class CustomStep extends StatelessWidget {
           ),
           color: Colors.white,
         ),
-        child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
           child: Container(
-            width: 8,
-            height: 8,
+            padding: const EdgeInsets.all(4),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: isActive ? AppColor.primaryColor : Color(0xff9F9F9F),

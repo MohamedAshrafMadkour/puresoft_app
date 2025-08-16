@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:puresoft_task/core/utils/app_color.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 import 'package:puresoft_task/core/widget/custom_divider.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -20,7 +20,9 @@ class CustomAppBar extends StatelessWidget {
           title: Center(
             child: Text(
               title,
-              style: AppStyle.textBold24.copyWith(color: AppColor.primaryColor),
+              style: AppStyle.textBold24(
+                context,
+              ).copyWith(color: AppColor.primaryColor),
             ),
           ),
         ),

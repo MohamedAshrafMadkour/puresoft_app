@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 import 'package:puresoft_task/core/utils/assets.dart';
 
 class CustomLogo extends StatelessWidget {
@@ -8,9 +8,15 @@ class CustomLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isLandScape =
+        MediaQuery.orientationOf(context) == Orientation.landscape;
     return Container(
-      width: MediaQuery.sizeOf(context).width * 0.22,
-      height: MediaQuery.sizeOf(context).height * 0.1,
+      width: isLandScape
+          ? MediaQuery.sizeOf(context).width * 0.1
+          : MediaQuery.sizeOf(context).width * 0.2,
+      height: isLandScape
+          ? MediaQuery.sizeOf(context).height * 0.2
+          : MediaQuery.sizeOf(context).height * 0.1,
       decoration: ShapeDecoration(
         color: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
@@ -30,7 +36,7 @@ class CustomLogo extends StatelessWidget {
         children: [
           SvgPicture.asset(Assets.imagesLogo, fit: BoxFit.fill),
           SizedBox(height: 5),
-          Text('COMPANY LOGO', style: AppStyle.textRegular7),
+          Text('COMPANY LOGO', style: AppStyle.textRegular7(context)),
         ],
       ),
     );

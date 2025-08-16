@@ -15,9 +15,14 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
+    bool isLandScape =
+        MediaQuery.orientationOf(context) == Orientation.landscape;
     return Container(
-      width: 430,
-      height: 64,
+      width: double.infinity,
+      height: isLandScape
+          ? MediaQuery.sizeOf(context).height * 0.15
+          : MediaQuery.sizeOf(context).height * 0.075,
+
       padding: const EdgeInsets.symmetric(horizontal: 10),
       decoration: ShapeDecoration(
         color: AppColor.primaryColor,
@@ -30,6 +35,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: barImage.asMap().entries.map((e) {
           int index = e.key;
           return InkWell(

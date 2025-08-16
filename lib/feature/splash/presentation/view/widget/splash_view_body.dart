@@ -6,6 +6,19 @@ class SplashViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isLandscape =
+        MediaQuery.orientationOf(context) == Orientation.landscape;
+    return isLandscape
+        ? const SplashViewBodyLandScape()
+        : const SplashViewBodyPortia();
+  }
+}
+
+class SplashViewBodyPortia extends StatelessWidget {
+  const SplashViewBodyPortia({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -14,6 +27,17 @@ class SplashViewBody extends StatelessWidget {
         Expanded(child: const SizedBox()),
         Image.asset(Assets.imagesSecondMainImage, fit: BoxFit.cover),
       ],
+    );
+  }
+}
+
+class SplashViewBodyLandScape extends StatelessWidget {
+  const SplashViewBodyLandScape({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Image.asset(Assets.imagesFirstMainImage, fit: BoxFit.cover),
     );
   }
 }

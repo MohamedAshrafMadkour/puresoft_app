@@ -7,6 +7,19 @@ class FirstCustomPageViewSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isLandScape =
+        MediaQuery.orientationOf(context) == Orientation.landscape;
+    return isLandScape
+        ? FirstCustomPageViewSectionLandScape()
+        : FirstCustomPageViewSectionPortia();
+  }
+}
+
+class FirstCustomPageViewSectionPortia extends StatelessWidget {
+  const FirstCustomPageViewSectionPortia({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
@@ -21,6 +34,32 @@ class FirstCustomPageViewSection extends StatelessWidget {
             child: CustomAnyTimeDelivery(),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class FirstCustomPageViewSectionLandScape extends StatelessWidget {
+  const FirstCustomPageViewSectionLandScape({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 13),
+              child: CustomNowDeliveryTime(),
+            ),
+            SizedBox(height: 26),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: CustomAnyTimeDelivery(),
+            ),
+          ],
+        ),
       ),
     );
   }

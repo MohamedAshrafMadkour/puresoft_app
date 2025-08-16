@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 import 'package:puresoft_task/feature/main/home/presentation/view/widget/custom_check_icon.dart';
 
 class CustomNowDeliveryTime extends StatelessWidget {
@@ -28,7 +28,9 @@ class CustomNowDeliveryTime extends StatelessWidget {
         children: [
           Text(
             'Now',
-            style: AppStyle.textBold16.copyWith(color: const Color(0xFF292727)),
+            style: AppStyle.textBold16(
+              context,
+            ).copyWith(color: const Color(0xFF292727)),
           ),
           CustomCheckIcon(isSelected: (value) {}),
         ],

@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:puresoft_task/core/helper/custom_show_dialog.dart';
 import 'package:puresoft_task/core/utils/app_color.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 import 'package:puresoft_task/core/utils/assets.dart';
 import 'package:puresoft_task/core/widget/custom_divider.dart';
 
 class CustomHomeBar extends StatelessWidget {
   const CustomHomeBar({super.key, required this.title});
   final String title;
+
   @override
   Widget build(BuildContext context) {
+    bool isLandScape =
+        MediaQuery.orientationOf(context) == Orientation.landscape;
     return Column(
       children: [
         Padding(
@@ -20,9 +23,9 @@ class CustomHomeBar extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: AppStyle.textBold24.copyWith(
-                  color: AppColor.primaryColor,
-                ),
+                style: AppStyle.textBold24(
+                  context,
+                ).copyWith(color: AppColor.primaryColor),
               ),
 
               Row(

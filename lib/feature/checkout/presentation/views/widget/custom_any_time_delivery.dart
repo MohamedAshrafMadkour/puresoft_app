@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:puresoft_task/core/utils/app_color.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 import 'package:puresoft_task/core/widget/custom_divider.dart';
+import 'package:puresoft_task/core/widget/custom_fitted_bod.dart';
 import 'package:puresoft_task/feature/main/home/presentation/view/widget/custom_check_icon.dart';
 
 class CustomAnyTimeDelivery extends StatelessWidget {
@@ -9,9 +10,13 @@ class CustomAnyTimeDelivery extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isLandScape =
+        MediaQuery.orientationOf(context) == Orientation.landscape;
     return Container(
       width: double.infinity,
-      height: MediaQuery.sizeOf(context).height * 0.14,
+      height: isLandScape
+          ? MediaQuery.sizeOf(context).height * 0.3
+          : MediaQuery.sizeOf(context).height * 0.14,
       decoration: ShapeDecoration(
         color: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -38,11 +43,12 @@ class CustomAnyTimeDelivery extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Select Delivery Time',
-
-                    style: AppStyle.textBold16.copyWith(
-                      color: AppColor.primaryColor,
+                  CustomFittedBox(
+                    child: Text(
+                      'Select Delivery Time',
+                      style: AppStyle.textBold16(
+                        context,
+                      ).copyWith(color: AppColor.primaryColor),
                     ),
                   ),
                   CustomCheckIcon(isSelected: (value) {}),
@@ -50,14 +56,25 @@ class CustomAnyTimeDelivery extends StatelessWidget {
               ),
             ),
             SizedBox(height: 14),
-            Text('Select Time'),
+            CustomFittedBox(child: Text('Select Time')),
             SizedBox(height: 4),
             Expanded(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
                 children: [
-                  Text('09 - 15 -2021 ', style: AppStyle.textBold17),
-                  Icon(Icons.keyboard_arrow_down, color: Color(0xff656565)),
+                  CustomFittedBox(
+                    child: Text(
+                      '09 - 15 -2021 ',
+                      style: AppStyle.textBold17(context),
+                    ),
+                  ),
+                  CustomFittedBox(
+                    child: Icon(
+                      Icons.keyboard_arrow_down,
+                      color: Color(0xff656565),
+                    ),
+                  ),
                 ],
               ),
             ),

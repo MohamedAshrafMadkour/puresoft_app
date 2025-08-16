@@ -9,7 +9,11 @@ import 'package:puresoft_task/feature/checkout/presentation/views/confirm_paymen
 import 'package:puresoft_task/feature/checkout/presentation/views/opps_view.dart';
 import 'package:puresoft_task/feature/main/home/presentation/view/main_view.dart';
 import 'package:puresoft_task/feature/main/seller_name/presentation/view/seller_name_view.dart';
+import 'package:puresoft_task/feature/main/setting/presentation/view/profile_view.dart';
+import 'package:puresoft_task/feature/main/setting/presentation/view/widget/contact_view.dart';
 import 'package:puresoft_task/feature/on_boarding/presentation/view/on_boarding_view.dart';
+import 'package:puresoft_task/feature/orders/presentation/view/my_orders_view.dart';
+import 'package:puresoft_task/feature/orders/presentation/view/tracking_order_view.dart';
 import 'package:puresoft_task/feature/profile/presentation/view/terms_view.dart';
 import 'package:puresoft_task/feature/splash/presentation/view/splash_view.dart';
 
@@ -17,8 +21,17 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
     case SplashView.routeName:
       return MaterialPageRoute(builder: (_) => const SplashView());
+
+    case ContactView.routeName:
+      return MaterialPageRoute(builder: (_) => const ContactView());
     case TermsView.routeName:
       return MaterialPageRoute(builder: (_) => const TermsView());
+    case MyOrdersView.routeName:
+      return MaterialPageRoute(builder: (_) => const MyOrdersView());
+    case TrackingOrderView.routeName:
+      return MaterialPageRoute(builder: (_) => const TrackingOrderView());
+    case ProfileView.routeName:
+      return MaterialPageRoute(builder: (_) => const ProfileView());
     case LoginView.routeName:
       return MaterialPageRoute(builder: (_) => const LoginView());
     case OppsView.routeName:

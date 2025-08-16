@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 
 class CustomSocialLogin extends StatelessWidget {
   const CustomSocialLogin({
@@ -8,16 +8,19 @@ class CustomSocialLogin extends StatelessWidget {
     required this.title,
     required this.image,
     this.onTap,
+    this.height,
+    this.width,
   });
   final String title, image;
   final Function()? onTap;
+  final double? height, width;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: MediaQuery.sizeOf(context).height * 0.06,
-        width: double.infinity,
+        height: height ?? MediaQuery.sizeOf(context).height * 0.06,
+        width: width ?? double.infinity,
         padding: const EdgeInsets.all(10),
         decoration: ShapeDecoration(
           shadows: [
@@ -41,7 +44,7 @@ class CustomSocialLogin extends StatelessWidget {
             Text(
               "Sign in with $title",
               textAlign: TextAlign.center,
-              style: AppStyle.textRegular14,
+              style: AppStyle.textRegular14(context),
             ),
           ],
         ),

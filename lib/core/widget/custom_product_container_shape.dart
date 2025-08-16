@@ -5,13 +5,14 @@ class CustomProductContainerShape extends StatelessWidget {
     super.key,
     required this.child,
     this.height,
+    this.width,
   });
   final Widget child;
-  final double? height;
+  final double? height, width;
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
+      width: width ?? double.infinity,
       height: height ?? MediaQuery.sizeOf(context).height * 0.14,
       decoration: ShapeDecoration(
         color: Color(0xffFFFFFF),

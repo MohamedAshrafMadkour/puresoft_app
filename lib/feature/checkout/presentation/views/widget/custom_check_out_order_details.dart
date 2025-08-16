@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 import 'package:puresoft_task/core/widget/custom_divider.dart';
 import 'package:puresoft_task/feature/main/cart/presentation/view/widget/custom_cart_item_price.dart';
 import 'package:puresoft_task/feature/main/cart/presentation/view/widget/custom_cart_sub_total_item_price.dart';
@@ -14,7 +14,9 @@ class CustomCheckoutOrderDetails extends StatelessWidget {
       children: [
         Text(
           'Order Details',
-          style: AppStyle.textBold17.copyWith(color: const Color(0xFF292727)),
+          style: AppStyle.textBold17(
+            context,
+          ).copyWith(color: const Color(0xFF292727)),
         ),
         SizedBox(height: 11),
         CustomCartSubTotalPrice(title: 'Total Items', subtitle: '36.00'),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:puresoft_task/core/utils/app_color.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 import 'package:puresoft_task/core/utils/assets.dart';
 import 'package:puresoft_task/core/widget/custom_divider.dart';
 
@@ -19,15 +19,17 @@ class CustomSellerBar extends StatelessWidget {
               Row(
                 children: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     icon: Icon(Icons.arrow_back_ios_new_outlined),
                   ),
                   SizedBox(width: 8),
                   Text(
                     'Product Name',
-                    style: AppStyle.textBold24.copyWith(
-                      color: AppColor.primaryColor,
-                    ),
+                    style: AppStyle.textBold24(
+                      context,
+                    ).copyWith(color: AppColor.primaryColor),
                   ),
                 ],
               ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 
 class CustomMainText extends StatelessWidget {
   const CustomMainText({super.key});
@@ -9,8 +9,8 @@ class CustomMainText extends StatelessWidget {
     return Text.rich(
       TextSpan(
         children: [
-          TextSpan(text: 'F', style: AppStyle.textBold51),
-          TextSpan(text: 'ruit Market', style: AppStyle.textBold42),
+          TextSpan(text: 'F', style: AppStyle.textBold51(context)),
+          TextSpan(text: 'ruit Market', style: AppStyle.textBold42(context)),
         ],
       ),
     );

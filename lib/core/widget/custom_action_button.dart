@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:puresoft_task/core/utils/app_color.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 
 class CustomActionButton extends StatelessWidget {
   const CustomActionButton({
@@ -27,7 +27,7 @@ class CustomActionButton extends StatelessWidget {
         child: Text(
           title,
           textAlign: TextAlign.center,
-          style: AppStyle.textMedium16,
+          style: AppStyle.textMedium16(context),
         ),
       ),
     );

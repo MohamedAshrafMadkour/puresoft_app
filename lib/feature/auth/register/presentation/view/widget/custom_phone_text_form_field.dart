@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 
 class CustomPhoneTextFormField extends StatelessWidget {
   const CustomPhoneTextFormField({
@@ -7,13 +7,18 @@ class CustomPhoneTextFormField extends StatelessWidget {
     required this.hintText,
     this.keyboardType,
     this.onSaved,
+    this.height,
+    this.width,
   });
   final String hintText;
   final TextInputType? keyboardType;
   final Function(String?)? onSaved;
+  final double? height, width;
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: height,
+      width: width,
       padding: const EdgeInsets.only(top: 5, left: 1, right: 18, bottom: 5),
       decoration: ShapeDecoration(
         color: Colors.white,
@@ -55,9 +60,9 @@ class CustomPhoneTextFormField extends StatelessWidget {
 
                 Text(
                   'KW',
-                  style: AppStyle.textRegular14.copyWith(
-                    color: const Color(0xFF2D3237),
-                  ),
+                  style: AppStyle.textRegular14(
+                    context,
+                  ).copyWith(color: const Color(0xFF2D3237)),
                 ),
                 SizedBox(width: 10),
                 Container(
@@ -72,7 +77,9 @@ class CustomPhoneTextFormField extends StatelessWidget {
             ),
           ),
           hintText: hintText,
-          hintStyle: AppStyle.textRegular14.copyWith(color: Colors.black),
+          hintStyle: AppStyle.textRegular14(
+            context,
+          ).copyWith(color: Colors.black),
         ),
       ),
     );

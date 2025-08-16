@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:puresoft_task/core/utils/app_style.dart';
+import 'package:puresoft_task/core/constant/app_style.dart';
 import 'package:puresoft_task/core/utils/assets.dart';
 
 class CustomNameRow extends StatelessWidget {
@@ -14,13 +14,20 @@ class CustomNameRow extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Text('Seller name', style: AppStyle.textBold19),
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text('Seller name', style: AppStyle.textBold19(context)),
+              ),
               SizedBox(width: 8),
               SvgPicture.asset(Assets.imagesCongratulation),
             ],
           ),
-          Text('4.5', style: AppStyle.textRegularTitillium14),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text('4.5', style: AppStyle.textRegularTitillium14(context)),
+          ),
         ],
       ),
     );
